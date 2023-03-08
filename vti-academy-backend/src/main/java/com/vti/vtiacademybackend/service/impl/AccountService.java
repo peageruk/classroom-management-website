@@ -57,7 +57,6 @@ public class AccountService implements IAccountService, UserDetailsService {
     @Override
     public Page<Account> search(SearchAccountRequest request) {
         PageRequest pageRequest = BaseRequest.buildPageRequest(request);
-
         return repository.findByUsernameContains(request.getName(), pageRequest);
     }
 
