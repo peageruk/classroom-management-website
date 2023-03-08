@@ -1,0 +1,13 @@
+package com.vti.vtiacademybackend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class VtiAcademyBackendApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(VtiAcademyBackendApplication.class, args);
+    }
+
+}
