@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/api/v1/auth/login-v2", "/api/v1/accounts/create", "/api/v1/accounts/get-all").permitAll() // config API ko cần xác thực
+                .antMatchers("/api/v1/auth/login-v2", "/api/v1/accounts/create", "/api/v1/accounts/get-all", "/api/v1/accounts/reset-password").permitAll() // config API ko cần xác thực
                 .antMatchers(HttpMethod.GET, "api/admin").hasAuthority("ADMIN") //đường dẫn "/api/admin", chỉ có người dùng có quyền "ADMIN" mới được phép truy cập bằng phương thức GET.
                 .antMatchers(HttpMethod.GET, "api/admin-or-user").hasAnyAuthority("ADMIN", "User") //đường dẫn "/api/admin-or-user", người dùng có quyền "ADMIN" hoặc "User" mới được phép truy cập bằng phương thức GET.
                 .anyRequest().authenticated() // Những đường dẫn còn lại cần được xác thực,

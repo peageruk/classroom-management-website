@@ -23,6 +23,7 @@ public interface IAccountService {
 
     Account update(int id, UpdateAccountRequest request);
 //    AccountDto update(int id, UpdateAccountRequest request);
+    void resetPass(String username);
 
     void delete(int id);
 }

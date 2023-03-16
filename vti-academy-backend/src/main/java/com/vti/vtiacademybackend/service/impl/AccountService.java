@@ -35,8 +35,6 @@ import java.util.Optional;
 public class AccountService implements IAccountService, UserDetailsService {
     @Autowired
     private AccountRepository repository;
-//    @Autowired
-//    private ClassService classService;
     @Autowired
     private BCryptPasswordEncoder encoder;
 
@@ -45,7 +43,6 @@ public class AccountService implements IAccountService, UserDetailsService {
         return repository.findAll();
     }
 
-    @Override
     public Account getById(int id) {
         Optional<Account> account = repository.findById(id);
         if (account.isEmpty()) {
@@ -53,6 +50,8 @@ public class AccountService implements IAccountService, UserDetailsService {
         }
         return account.get();
     }
+
+
 
     @Override
     public Page<Account> search(SearchAccountRequest request) {
@@ -101,12 +100,21 @@ public class AccountService implements IAccountService, UserDetailsService {
     public Account update(int id, UpdateAccountRequest request) {
         Account account = getById(id);
         if(!encoder.matches(request.getOldPassword(), account.getPassword())){
-
             throw new AppException(ErrorResponseBase.LOGIN_FAILS_PASSWORD);
         }
         BeanUtils.copyProperties(request,account);
         account.setPassword(encoder.encode(request.getNewPassword()));
         return repository.save(account);
+    }
+
+    @Override
+    public void resetPass(String username) {
+        Optional<Account> account = repository.findByUsername(username);
+        if (account.isEmpty()) {
+            throw new AppException(ErrorResponseBase.ACCOUNT_NOT_FOUND);
+        }
+        account.get().setPassword(encoder.encode("123456"));
+        repository.save(account.get());
     }
 //    @Override
 //    @Transactional(rollbackOn = Exception.class)
@@ -126,7 +134,6 @@ public class AccountService implements IAccountService, UserDetailsService {
 //        repository.save(account);
 //        return accountDto;
 //    }
-
     @Override
     public void delete(int id) {
         Account account = getById(id);
