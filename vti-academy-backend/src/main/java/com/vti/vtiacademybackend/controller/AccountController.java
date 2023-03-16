@@ -55,6 +55,10 @@ public class AccountController {
 //    public AccountDto update(@RequestBody @Valid UpdateAccountRequest request, @PathVariable int id) {
 //        return service.update(id, request);
 //    }
+    @PostMapping("/reset-password")
+    public void resetPass(@RequestBody String username){
+        service.resetPass(username);
+    }
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAnyAuthority('ADMIN')")

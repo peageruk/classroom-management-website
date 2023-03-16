@@ -3,6 +3,9 @@ function Account(username, password) {
     this.username = username;
     this.password = password;
 }
+function rs(username) {
+    this.username = username;
+}
 function Login() {
     event.preventDefault();
     // call API from server
@@ -19,7 +22,7 @@ function Login() {
         data: JSON.stringify(account),
         error: function (err) {
             console.log(err.responseJSON.message);
-            confirm("bạn chưa đăng nhập")
+            confirm(err.responseJSON.message);
         },
         success: function (data) {
             console.log(data);
@@ -34,4 +37,22 @@ function Login() {
 
     });
 
+}
+function resetPass(){
+    let username = document.getElementById("Username").value;
+    $.ajax({
+        url: "http://localhost:8888/api/v1/accounts/reset-password",
+        type: "POST",
+        contentType: "application/json",
+        data: username,
+        error: function (err) {
+            console.log(err.responseJSON.message);
+        },
+        success: function (data) {
+            console.log("mat khau la 123456");
+            // localStorage.setItem("userAgent", data.userAgent);           
+            confirm("mat khau la 123456")
+        }
+
+    });
 }
