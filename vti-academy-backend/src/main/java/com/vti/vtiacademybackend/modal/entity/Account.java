@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "`Account`")
+@Table(name = "`account`")
 public class Account {
     @Id
     @Column(name = "`id`")
@@ -38,7 +38,7 @@ public class Account {
     @ManyToOne
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    @JoinColumn(name = "`class_id`", referencedColumnName = "`id`", foreignKey = @ForeignKey(name = "`Account_fk0`"))
+    @JoinColumn(name = "`class_id`", referencedColumnName = "`id`", foreignKey = @ForeignKey(name = "`account_fk0`"))
     private Class classId;
 //    @OneToMany(mappedBy = "mentorId")
 //    private List<Class> classes;

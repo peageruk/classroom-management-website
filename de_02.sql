@@ -2,7 +2,7 @@ drop database if exists final;
 create database final;
 use final;
 
-CREATE TABLE `Account` (
+CREATE TABLE `account` (
 	`id` int NOT NULL AUTO_INCREMENT,
 	`username` varchar(50) NOT NULL UNIQUE,
 	`date_of_birth` DATE NOT NULL,
@@ -63,9 +63,9 @@ CREATE TABLE token (
                          UNIQUE KEY token (token)
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-ALTER TABLE `Account` ADD CONSTRAINT `Account_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
+ALTER TABLE `account` ADD CONSTRAINT `account_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
 
-ALTER TABLE `class` ADD CONSTRAINT `class_fk0` FOREIGN KEY (`mentor_id`) REFERENCES `Account`(`id`);
+ALTER TABLE `class` ADD CONSTRAINT `class_fk0` FOREIGN KEY (`mentor_id`) REFERENCES `account`(`id`);
 
 ALTER TABLE `class` ADD CONSTRAINT `class_fk1` FOREIGN KEY (`zoom_id`) REFERENCES `zoom`(`id`);
 
