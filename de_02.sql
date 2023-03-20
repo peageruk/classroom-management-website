@@ -65,7 +65,7 @@ CREATE TABLE token (
 
 ALTER TABLE `account` ADD CONSTRAINT `account_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
 
-ALTER TABLE `class` ADD CONSTRAINT `class_fk0` FOREIGN KEY (`mentor_id`) REFERENCES `Account`(`id`);
+ALTER TABLE `class` ADD CONSTRAINT `class_fk0` FOREIGN KEY (`mentor_id`) REFERENCES `account`(`id`);
 
 ALTER TABLE `class` ADD CONSTRAINT `class_fk1` FOREIGN KEY (`zoom_id`) REFERENCES `zoom`(`id`);
 
