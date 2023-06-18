@@ -1,6 +1,6 @@
 import React from "react";
-import addTodoAction from "../../redux/actionCreators/todoActionCreator";
-import store from "../../redux/store";
+import { connect } from "react-redux";
+import addTodoAction from "../redux/actionCreators/todoActionCreator";
 
 class AddTodoButton extends React.Component {
 
@@ -18,7 +18,7 @@ class AddTodoButton extends React.Component {
     };
 
     handleAddTodo = () => {
-        store.dispatch(addTodoAction(this.state.input));
+        this.props.addTodoAction(this.state.input);
         this.setState({
             input: ""
         });
@@ -39,4 +39,4 @@ class AddTodoButton extends React.Component {
     }
 }
 
-export default AddTodoButton;
+export default connect(null, { addTodoAction })(AddTodoButton)
