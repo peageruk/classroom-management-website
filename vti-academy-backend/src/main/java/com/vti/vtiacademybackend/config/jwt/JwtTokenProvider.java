@@ -38,7 +38,7 @@ public class JwtTokenProvider {
         // Tạo giá trị thời hạn token ( bằng thời gian hiện tại + 10 ngày hoặc tuỳ theo )
         Date expirationDate = new Date(System.currentTimeMillis() + EXPIRATION_TIME);
         String token = Jwts.builder()
-                .setId(String.valueOf(loginDto.getId())) //set giá trị Id
+                .setId(String.valueOf(loginDto.getId())) //set giá trị  Id
                 .setSubject(loginDto.getUsername()) // set giá trị subject
                 .setIssuedAt(new Date())
                 .setIssuer("VTI")

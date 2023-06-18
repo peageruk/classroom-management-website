@@ -1,6 +1,4 @@
-drop database if exists final;
-create database final;
-use final;
+use heroku_3bf170953247207;
 
 CREATE TABLE `account` (
 	`id` int NOT NULL AUTO_INCREMENT,
@@ -54,14 +52,14 @@ CREATE TABLE `class` (
 );
 CREATE TABLE token (
                          id int unsigned NOT NULL AUTO_INCREMENT,
-                         token varchar(500) NOT NULL,
-                         user_agent varchar(500) NOT NULL,
+                         token varchar(255) NOT NULL,
+                         user_agent varchar(255) NOT NULL,
                          is_black_list tinyint(1) DEFAULT NULL,
                          refresh_time datetime DEFAULT NULL,
                          expiration datetime DEFAULT NULL,
                          PRIMARY KEY (id),
                          UNIQUE KEY token (token)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 ALTER TABLE `account` ADD CONSTRAINT `account_fk0` FOREIGN KEY (`class_id`) REFERENCES `class`(`id`);
 

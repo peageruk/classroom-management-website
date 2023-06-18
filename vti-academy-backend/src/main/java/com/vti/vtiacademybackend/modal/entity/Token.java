@@ -18,7 +18,7 @@ public class Token {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "token", length = 500)
+    @Column(name = "token", length = 191)
     private String token;
 
     @Column(name = "user_agent")
