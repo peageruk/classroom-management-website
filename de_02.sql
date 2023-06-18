@@ -1,4 +1,6 @@
-use heroku_3bf170953247207;
+CREATE database final;
+
+use final;
 
 CREATE TABLE `account` (
 	`id` int NOT NULL AUTO_INCREMENT,

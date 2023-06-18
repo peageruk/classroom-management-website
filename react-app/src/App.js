@@ -1,17 +1,10 @@
-import React from 'react';
-import AddTodoButton from './components/AddTodoButton';
-import TodoList from './components/TodoList';
+import React from "react";
+import "./App.scss";
 
 class App extends React.Component {
   render() {
-    return (
-      <div>
-        <AddTodoButton />
-        <TodoList />
-      </div>
-    );
+    return <div>hello world</div>;
   }
 }
 
 export default App;
-
