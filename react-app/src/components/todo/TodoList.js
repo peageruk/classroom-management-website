@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
-import selectListTodos from "../redux/selectors/todoSelector";
-import store from "../redux/store";
+import selectListTodos from "../../redux/selectors/todoSelector";
+import store from "../../redux/store";
 
 function TodoList() {
 

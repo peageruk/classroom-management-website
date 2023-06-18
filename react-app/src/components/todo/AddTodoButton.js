@@ -1,6 +1,6 @@
 import React from "react";
-import addTodoAction from "../redux/actionCreators/todoActionCreator";
-import store from "../redux/store";
+import addTodoAction from "../../redux/actionCreators/todoActionCreator";
+import store from "../../redux/store";
 
 class AddTodoButton extends React.Component {
 
