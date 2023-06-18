@@ -1,13 +1,17 @@
-// import logo from "./logo.svg";
-// import "./App.css";
-import Counter from "./components/Counter";
+import React from 'react';
+import AddTodoButton from './components/AddTodoButton';
+import TodoList from './components/TodoList';
 
-function App() {
-  return (
-    <div className="App">
-      <Counter />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <AddTodoButton />
+        <TodoList />
+      </div>
+    );
+  }
 }
 
 export default App;
+
