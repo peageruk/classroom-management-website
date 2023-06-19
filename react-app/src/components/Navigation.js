@@ -15,7 +15,8 @@ const Navigation = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
-    alert("logged out");
+    // alert("logged out");
+    console.log("logged out");
   };
   return (
     <Navbar bg="light" expand="lg">

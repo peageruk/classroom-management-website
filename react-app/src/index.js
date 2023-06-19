@@ -9,10 +9,12 @@ import Zooms from "./components/Zooms";
 import Accounts from "./components/Accounts";
 import Classes from "./components/Classes";
 import Home from "./components/Home";
+import { UserContext } from "./context/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {/* <UserContext> */}
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
@@ -24,6 +26,7 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
+    {/* </UserContext> */}
   </React.StrictMode>
 );
 
