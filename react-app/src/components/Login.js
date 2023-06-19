@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { loginAPI } from "../services/LoginService.js";
+import { loginAPI } from "../services/UserService.js";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 
