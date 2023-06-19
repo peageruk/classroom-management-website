@@ -15,6 +15,7 @@ const Login = () => {
     let response = await loginAPI(username, password);
     if (response && response.token) {
       console.log(response);
+      localStorage.setItem("token", response.token);
       navigate("/");
     } else if (
       response &&
@@ -57,8 +58,9 @@ const Login = () => {
           <Form>
             <Form.Group className="mb-3">
               <Form.Label>Username</Form.Label>
+              <br />
               {hideU === false && (
-                <Form.Text className="text-muted">
+                <Form.Text className="text-danger">
                   Người dùng không tồn tại
                 </Form.Text>
               )}
@@ -73,14 +75,16 @@ const Login = () => {
 
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
+              <br />
               {hideP === false && (
-                <Form.Text className="text-muted">
+                <Form.Text className="text-danger">
                   Mật khẩu không đúng
                 </Form.Text>
               )}
               <Form.Control
                 value={password}
                 type="password"
+                autoComplete="on"
                 onChange={(event) => {
                   setPassword(event.target.value);
                 }}
