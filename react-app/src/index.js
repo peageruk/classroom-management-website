@@ -9,23 +9,27 @@ import Zooms from "./components/Zooms";
 import Accounts from "./components/Accounts";
 import Classes from "./components/Classes";
 import Home from "./components/Home";
-import { UserContext } from "./context/UserContext";
+// import { UserContext } from "./context/UserContext";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <UserContext> */}
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="account" index element={<Accounts />} />
-          <Route path="zoom" index element={<Zooms />} />
-          <Route path="class" index element={<Classes />} />
-          <Route path="login" index element={<Login />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="account" index element={<Accounts />} />
+            <Route path="zoom" index element={<Zooms />} />
+            <Route path="class" index element={<Classes />} />
+            <Route path="login" index element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
     {/* </UserContext> */}
   </React.StrictMode>
 );
