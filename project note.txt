@@ -1,3 +1,0 @@
-
-tất cả controller dã có @Valid ở create và update OK
-create update delete phải có quyền admin mới dùng được OK
